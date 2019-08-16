@@ -9,3 +9,9 @@ body {
 a { 
   color:#E0E2E2;
 }
+nav{
+  align-content:space-around;
+  padding:10px;
+  margin:auto;
+  background-color:#101d42
+}
