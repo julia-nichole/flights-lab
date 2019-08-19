@@ -19,4 +19,4 @@ var ticketSchema = new Schema({
 
 })
 
-module.exports = mongoose.model('Ticket',ticketSchema);
+module.exports = mongoose.model('Ticket',flightSchema);

@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title>Mongoose Ticketing</title>
-</head>
-<body>
-  <h2>Enter a New Ticket</h2>
-  <form action="/tickets/<%= ticket._id%>" method="POST">
-    <label>Seat:
-      <input type="text" name="seat">
-    </label><br>
-    <label>Price:
-      <input type="text" name="price">
-    </label><br>
-    <label>Flight:
-      <input type="text" name="flight">
-    </label><br>
-    <input type="submit" value="Add Ticket">
-  </form>
-</body>
-</html>
+<%- include('../partials/header') %>
+<form action="/tickets" method="POST">
+    <label>Seat Number: <br>Capital Letter:1-9:0-9 <br>exspamle: F26</label>
+    <input name="seat" required pattern="[A-F][1-9]\d?">
+    <label>Price</label>
+    <input name="price">
+    <input name="fligtNo">
+    <button>submit</button>
+</form>
+<%- include('../partials/footer') %>
