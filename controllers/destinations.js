@@ -1,4 +1,4 @@
-var flight = require('../models/flight');
+var Flight = require('../models/flight');
 
 module.exports = {
     create

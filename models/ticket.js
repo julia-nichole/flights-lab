@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var ticketSchema = new Schema({
+var TicketSchema = new Schema({
     seat:{
         type: String,
         match: /[A-F] [1-9]\d?/
@@ -12,11 +12,11 @@ var ticketSchema = new Schema({
         min: 0,
     },
     flight:{
-        type: Schema.type.ObjectId,
+        type: Schema.Types.ObjectId,
         ref:'Flight',
 
     }
 
 })
 
-module.exports = mongoose.model('Ticket',flightSchema);
+module.exports = mongoose.model('Ticket',TicketSchema);
