@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>Mongoose Flights</title>
+</head>
+<body>
+  <h1>Flight Detail</h1>
+  <table>
+      <thead>
+          <tr>
+              <th>Airline</th>
+              <th>Flight Number</th>
+              <th>Departure Date</th>
+              <th>Airport</th>
+          </tr>
+      </thead>
+      <tbody>
+              <tr>
+                  <td><%= flight.airline %></td>
+                  <td><%= flight.flightNo %></td>
+                  <td><%= flight.departs %></td>
+                  <td><%= flight.airport %></td>
+              </tr>
+      </tbody>
+  </table>
+  <h1>Ticket Details</h1>
+  <table>
+      <thead>
+        <tr>
+            <th>Seat</th>
+            <th>Price</th>
+            <th>Flight</th>
+        </tr> 
+      </thead>
+      <tbody>
+          <tr>
+            <% console.log(tickets)%>
+            <td><%= tickets.seat %></td>
+            <td><%= tickets.price %></td>
+            <td><%= tickets.flight %></td>
+          </tr>
+      </tbody>
+  </table>
+  <br><br>  <br><br>
+    <form id="add-destination-form" method="POST"
+  action="/flights/<%= flight._id %>/destinations">
+  <label>Arrival Date</label>
+    <input type="datetime-local" name="arrival">
+  <label>Arrival Airport</label>
+  <select name="airport">
+        <option value="SEA">SEA</option>
+        <option value="AUS">AUS</option>
+        <option value="DAL">DAL</option>
+        <option value="LAX">LAX</option>
+  </select>
+  <input type="submit" value="Add Destination">
+</form>
+
+<% if (flight.destinations.length) { %>
+    <table>
+      <thead>
+        <tr>
+            <th>Destination Airport</th>
+            <th>Destination Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flight.destinations.forEach(function(d) { %>
+          <tr>
+            <td><%= d.airport %></td>
+            <td><%= d.arrival %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Destinations Yet</h5>
+  <% } %>
+</body>
+</html>

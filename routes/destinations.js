@@ -1,9 +1,7 @@
-var flight = require('../models/flight');
+var express = require('express');
+var router = express.Router();
+var destinationsCtrl = require('../controllers/destinations');
 
-module.exports = {
-    create
-};
+router.post('/flights/:id/destinations', destinationsCtrl.create);
 
-function create(req,res) {
-    flight.findById(req.params.id)
-}
+module.exports = router;
